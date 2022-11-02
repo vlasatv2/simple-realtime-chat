@@ -1,5 +1,7 @@
 # Simple real-time web chat with nicknames
 
+Based on a basic Socket IO chat example
+
 <b>Installation:</b>
 1. Install all modules and dependencies (npm install)
 2. Run the server (node index.js)
