@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple chat</title>
+  </head>
+  <body>
+
+    <div id="screen-login" style="flex-direction: column;margin-top: 130px;position: relative;text-align: center;">
+      <div style="font-size: 25px;font-weight: 600;margin-bottom: 10px;">Write a nickname</div>
+       <input id="nick" data-nick="" class="input-class" placeholder="User123" require maxlength="16">
+     </div>
+   <div id="screen-chat" class="wrap_Scrollbottom" style="display: none;"> 
+     <div class="header-chat">Realtime chat</div>
+           <div class="container_Scrollbottom" id="containerScroll">
+             <div class="messages" id="messages"></div>
+             <div class="wrapper_Scrollbottom"></div>
+           </div>
+
+           <form id="form" action="">
+            <input id="input" class="mx-auto text-area" placeholder="Write..." require>
+          </form>
+         </div>
+
+
+  </body>
+  
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script>
+    var socket = io();
+
+    function lastMessageScroll(b) {
+    var e = document.querySelector('.wrapper_Scrollbottom');
+    if (!e) return; 
+    
+    e.scrollIntoView({
+        behavior: b || 'auto',
+        block: 'end',
+    });
+}
+
+    $('#nick').on('keyup',function(e){
+	if(e.keyCode==13 && !e.shiftKey) {
+	if($("#nick").val() <= 1) {
+alert('Write the nickname')
+	}
+	else {
+$("#screen-login").css('display','none');
+$("#screen-chat").css('display','flex');
+con_nick = $("#nick").val();
+console.log("Connected as: " + con_nick)
+	}
+}
+});
+
+    var messages = $("#messages");
+    var form = $("#form");
+    var input = $("#input");
+    var nickv = $("#nick");
+
+    form.submit(function(e) {
+      e.preventDefault();
+      if (input.val()) {
+        socket.emit('chat message from', {mess: input.val(), nick: nickv.val()});
+        socket.emit('chat message to', {mess: input.val(), nick: nickv.val()});
+        input.val('');
+      }
+    });
+
+    socket.on('chat message to', function(msg) {
+      messages.append("<div class='div-mes-to'><div class='name-user'>"+ msg.nick +"</div><div class='to'><div class='mes-text'>"+ msg.mess +"</div></div></div>");
+      lastMessageScroll('smooth')
+    });
+    socket.on('chat message from', function(msg) {
+      messages.append("<div class='div-mes-from'><div class='name-user'>"+ msg.nick +"</div><div class='from'><div class='mes-text'>"+ msg.mess +"</div></div></div>");
+      lastMessageScroll('smooth')
+    });
+  </script>
+
+</html>

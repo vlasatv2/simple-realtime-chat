@@ -1,0 +1,130 @@
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Inter', sans-serif;
+  resize:none;}
+html,body {
+  width:100%;
+  height:100%;
+}
+.wrap_Scrollbottom {
+  margin: 30px auto; 
+  width: 500px; 
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid #dbdbdb;
+  position: relative;
+  max-width: 90%; 
+border-radius: 12px;
+}
+
+.header-chat {
+  position: absolute;
+  bottom: 88%;
+  top: 0px;
+  font-size: 21px;
+  font-weight: 600;
+  padding: 16px 0px 0px 25px;
+  width: 100%;
+  border-bottom: 1px solid #dbdbdb;
+  background: #fff;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+
+}
+.container_Scrollbottom {
+  padding: 70px 10px 10px 10px;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.messages:empty::before {
+  content: 'No messages';
+  display: block;
+  padding: 20px;
+  text-align: center;
+  color: gray;
+}
+
+.from {
+padding: 10px;
+  border-radius: 0px 10px 10px 10px;
+border: 1px solid #d5d5d5;
+  display: inline-flex;
+}
+.to {
+padding: 10px;
+  background: #ededed;
+  border-radius: 10px 10px 0px 10px;
+  display: inline-flex;
+  color: #000;
+  
+}
+.div-mes-to {
+  margin: 0px 0px 10px auto;
+      text-align: right;
+}
+
+.div-mes-from {
+  margin: 0px 0px 10px auto;
+}
+.mes-text {
+  max-width: 300px;
+  word-wrap: break-word;
+text-align: left;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-area {
+background: rgb(251, 251, 251);
+font-size: 16px;
+min-height: 43px;
+max-width: 504px;
+transition: none 0s ease 0s;
+resize: vertical;
+width: 100%;
+height: 43px;
+padding: 0.7rem 1rem;
+border-radius: 10px;
+border: 1px solid rgb(215, 215, 215);
+display: flex;
+}
+
+::-webkit-scrollbar {
+  height: 1rem;
+  width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  padding: .25rem
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: .5rem;
+  border: 5px solid transparent;
+  background-color: #0089ff;
+  background-clip: padding-box;
+}
+
+.input-class {
+  padding: .7rem 1rem;
+  border: 1px solid #d7d7d7;
+  border-radius: 10px;
+  color:#000;
+  transition: 0.2s ease;
+  -webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+}
+
+.name-user {
+font-size: 14px;
+margin-bottom: 6px;
+color: #777;
+}
