@@ -1,15 +1,10 @@
-# chat-example
+# Simple real-time web chat with nicknames
 
-This is the source code for a very simple chat example used for
-the [Getting Started](http://socket.io/get-started/chat/) guide
-of the Socket.IO website.
+Installation:
+1. Install all modules and dependencies npm install
+2. Run the node index.js server
+3. Go to the link given out in the console
 
-Please refer to it to learn how to run this application.
+You can test and download the project via Heroku
 
-You can also spin up a free Heroku dyno to test it out:
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/socketio/chat-example)
-
-Or run it on [Repl.it](https://repl.it/):
-
-[![Run on Repl.it](https://repl.it/badge/github/socketio/chat-example)](https://repl.it/github/socketio/chat-example)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/vlasatv2/simple-realtime-chat)
